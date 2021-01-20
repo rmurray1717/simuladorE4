@@ -13,15 +13,17 @@ describe('Test Calcuator Container', () => {
 
     test('Should match calculator snapshot', () => {
         const { asFragment } = render(<CalculatorContainer />)
-        
+
         expect(asFragment(<CalculatorContainer />)).toMatchSnapshot();
      });
      
     test('Should render calculated mortgage payment after submit', async () => {
+        // TODO: extract into setUpTest
         fetchMock.mock('https://sheltered-escarpment-94741.herokuapp.com/v1/calculator', {
             body: { paymentPerSchedule: 1000 },
             status: 200
         });
+
         const { getByTestId, findByText } = render(<CalculatorContainer />);
 
         fireEvent.click(getByTestId('calculate-btn'));

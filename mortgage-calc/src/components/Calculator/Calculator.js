@@ -29,13 +29,13 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Calculator(props) {
     const classes = useStyles();
-    return <Container component="main" maxWidth="xs">
+    return <Container component="main" maxWidth="sm">
     <div className={classes.paper}>
     <Typography component="h1" variant="h5">
         {strings.mortgageCalculator}
     </Typography>
     <Typography component="h2" variant="h5" data-testid="mortgage-payment">
-        ${props.mortgatePayment}
+        {props.mortgagePaymentResult}
     </Typography>
     <form className={classes.form} noValidate onSubmit={props.handleSubmit}>
         <Grid container spacing={2}>
@@ -58,7 +58,7 @@ export default function Calculator(props) {
         </Grid>
         <Grid item xs={6} sm={2}>
             <Typography id="down-payment" gutterBottom>
-                {props.propertyPrice}
+                ${props.propertyPrice}
             </Typography>
         </Grid>
         <Grid item xs={12} sm={4}>
@@ -81,7 +81,7 @@ export default function Calculator(props) {
         </Grid>
         <Grid item xs={6} sm={2}>
             <Typography id="interest-rate" gutterBottom>
-                {props.downPayment}
+                {props.downPayment}%
             </Typography>
         </Grid>
         <Grid item xs={12} sm={4}>
@@ -104,7 +104,7 @@ export default function Calculator(props) {
         </Grid>
         <Grid item xs={6} sm={2}>
             <Typography id="amortization-period" gutterBottom>
-                {props.interestRate}
+                {props.interestRate}%
             </Typography>
         </Grid>
         <Grid item xs={12} sm={4}>
@@ -127,7 +127,7 @@ export default function Calculator(props) {
         </Grid>
         <Grid item xs={6} sm={2}>
             <Typography id="payment-schedule" gutterBottom>
-                {props.amortizationPeriod}
+                {props.amortizationPeriod} {strings.years}
             </Typography>
         </Grid>
         <Grid item xs={12} sm={6}>

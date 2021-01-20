@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Calculator from './Calculator.js';
 import { calculate } from '../../services/mortgage.js';
+import  { strings } from '../../lang.js';
 
 export default function CalculatorContainer() {
   const [propertyPrice, setPropertyPrice] = useState(400000);
@@ -9,7 +10,8 @@ export default function CalculatorContainer() {
   const [interestRate, setInterestRate] = useState(2);
   const [amortizationPeriod, setAmortizationPeriod] = useState(5);
   const [province, setProvince] = useState('BC');
-  const [mortgatePayment, setMortgagePayment] = useState(1);
+  const [mortgagePayment, setMortgagePayment] = useState('');
+  const [mortgagePaymentResult, setMortgagePaymentResult] = useState('--');
 
   const dollarValue = (value) => {
     return `$${value}`;
@@ -26,6 +28,29 @@ export default function CalculatorContainer() {
           return `${value} year`;
       }
   }
+
+  const getScheduleLabel = (value) => {
+    switch (value) {
+      case 'BIWKLY':
+        return strings.biweekly;
+      case 'MTHLY':
+        return strings.monthly;
+      case 'ACC_BIWKLY':
+        return strings.accBiweekly;
+      default:
+        return '';
+    }
+  }
+  
+  const generateMortgagePaymentResults = (value) => {
+    if (value.length === 0) {
+      return '';
+    }
+
+    let scheduleLabel = getScheduleLabel(paymentSchedule);
+    setMortgagePaymentResult(`Your mortgage payment is $${value} ${scheduleLabel}.`);
+  }
+
   const handlePaymentScheduleChange = (event) => {
     setPaymentSchedule(event.target.value);
   };
@@ -52,14 +77,16 @@ export default function CalculatorContainer() {
     setInterestRate(0);
     setAmortizationPeriod(5);
     setPaymentSchedule('');
-    setMortgagePayment(0);
+    setMortgagePayment('');
   }
 
   const handleSubmit = async(e) => {
     e.preventDefault();
     
     let result = await calculate({propertyPrice, downPayment, interestRate, amortizationPeriod, paymentSchedule, province});
-    setMortgagePayment(result.paymentPerSchedule);
+    let pps = result.paymentPerSchedule;
+    setMortgagePayment(pps);
+    generateMortgagePaymentResults(pps);
   }
 
   return <Calculator 
@@ -75,10 +102,11 @@ export default function CalculatorContainer() {
       handlePropertyPriceChange={handlePropertyPriceChange}
       handleInterestRateChange={handleInterestRateChange}
       handlePaymentScheduleChange={handlePaymentScheduleChange}
-      mortgatePayment={mortgatePayment}
+      mortgagePayment={mortgagePayment}
       dollarValue={dollarValue}
       yearValue={yearValue}
       percentValue={percentValue}
+      mortgagePaymentResult={mortgagePaymentResult}
   />;
 
 }

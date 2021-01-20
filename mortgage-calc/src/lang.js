@@ -12,7 +12,8 @@ export const strings = new LocalizedStrings({
        accBiweekly: 'Accelerated Biweekly',
        monthly: 'Monthly',
        calculate: 'Calculate',
-       reset: 'Reset'
+       reset: 'Reset',
+       years: 'Yr(s)'
     },
     zh: {
         propertyPrice: '%%Property Price%%',
@@ -25,6 +26,7 @@ export const strings = new LocalizedStrings({
         accBiweekly: '%%Accelerated Biweekly%%',
         monthly: '%%Monthly%%',
         calculate: '%%Calculate%%',
-        reset: '%%Reset%%'
+        reset: '%%Reset%%',
+        years: '%%Yr(s)%%'
     }
 });
