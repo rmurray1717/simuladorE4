@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Calculator from './Calculator.js';
+import { calculate } from '../../services/mortgage.js';
 
 export default function CalculatorContainer() {
   const [propertyPrice, setPropertyPrice] = useState(400000);
@@ -7,6 +8,7 @@ export default function CalculatorContainer() {
   const [downPayment, setDownPayment] = useState(5);
   const [interestRate, setInterestRate] = useState(2);
   const [amortizationPeriod, setAmortizationPeriod] = useState(5);
+  const [province, setProvince] = useState('BC');
   const [mortgatePayment, setMortgagePayment] = useState(1);
 
   const dollarValue = (value) => {
@@ -53,26 +55,11 @@ export default function CalculatorContainer() {
     setMortgagePayment(0);
   }
 
-  const handleSubmit = e => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    fetch('https://sheltered-escarpment-94741.herokuapp.com/v1/calculator', {
-    method: 'POST',
-    headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-            "propertyPrice": propertyPrice,
-            "downPayment": downPayment,
-            "interestRate": interestRate,
-            "amortizationPeriod": amortizationPeriod,
-            "paymentSchedule": paymentSchedule
-        })
-    })
-    .then(response => response.json())
-    .then(result => {
-        setMortgagePayment(result.paymentPerSchedule);
-    });
+    
+    let result = await calculate({propertyPrice, downPayment, interestRate, amortizationPeriod, paymentSchedule, province});
+    setMortgagePayment(result.paymentPerSchedule);
   }
 
   return <Calculator 
@@ -82,6 +69,7 @@ export default function CalculatorContainer() {
       amortizationPeriod={amortizationPeriod} 
       paymentSchedule={paymentSchedule}
       handleReset={handleReset}
+      handleSubmit={handleSubmit}
       handleAmortizationPeriodChange={handleAmortizationPeriodChange}
       handleDownPaymentChange={handleDownPaymentChange}
       handlePropertyPriceChange={handlePropertyPriceChange}
