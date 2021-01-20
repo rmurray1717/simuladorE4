@@ -34,7 +34,7 @@ export default function Calculator(props) {
     <Typography component="h1" variant="h5">
         {strings.mortgageCalculator}
     </Typography>
-    <Typography component="h2" variant="h5">
+    <Typography component="h2" variant="h5" data-testid="mortgage-payment">
         ${props.mortgatePayment}
     </Typography>
     <form className={classes.form} noValidate onSubmit={props.handleSubmit}>
@@ -53,6 +53,7 @@ export default function Calculator(props) {
                 step={1000}
                 min={400000}
                 max={2000000}
+                data-testid="property-price-input"
             />
         </Grid>
         <Grid item xs={6} sm={2}>
@@ -75,6 +76,7 @@ export default function Calculator(props) {
                 min={5}
                 max={100}
                 valueLabelDisplay="auto"
+                data-testid="down-payment-input"
             />
         </Grid>
         <Grid item xs={6} sm={2}>
@@ -97,6 +99,7 @@ export default function Calculator(props) {
                 min={0}
                 max={10}
                 valueLabelDisplay="auto"
+                data-testid="interest-rate-input"
             />
         </Grid>
         <Grid item xs={6} sm={2}>
@@ -119,6 +122,7 @@ export default function Calculator(props) {
                 min={5}
                 max={30}
                 valueLabelDisplay="auto"
+                data-testid="amortization-period-input"
             />
         </Grid>
         <Grid item xs={6} sm={2}>
@@ -147,6 +151,7 @@ export default function Calculator(props) {
             variant="contained"
             color="primary"
             className={classes.submit}
+            data-testid="calculate-btn"
         >
             {strings.calculate}
         </Button>
@@ -156,6 +161,7 @@ export default function Calculator(props) {
             color="secondary"
             className={classes.submit}
             onClick={props.handleReset}
+            data-testid="reset-btn"
         >
             {strings.reset}
         </Button>

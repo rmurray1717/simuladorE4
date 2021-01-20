@@ -14,7 +14,11 @@ export const calculate  = async ({propertyPrice, downPayment, interestRate, amor
                 "province": province
         })
     });
-
-    const responseJson = await response.json();
-    return responseJson;
+    if (response.ok) {
+        const responseJson = await response.json();
+        return responseJson;
+    } else {
+        console.log(response);
+        return Promise.reject(response);
+    }
 }
