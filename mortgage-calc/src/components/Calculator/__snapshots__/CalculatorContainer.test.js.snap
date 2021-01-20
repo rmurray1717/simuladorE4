@@ -6,7 +6,7 @@ exports[`Test Calcuator Container Should match calculator snapshot 1`] = `
     class="MuiContainer-root MuiContainer-maxWidthSm"
   >
     <div
-      class="makeStyles-paper-1"
+      class="makeStyles-paper-2"
     >
       <h1
         class="MuiTypography-root MuiTypography-h5"
@@ -20,7 +20,7 @@ exports[`Test Calcuator Container Should match calculator snapshot 1`] = `
         --
       </h2>
       <form
-        class="makeStyles-form-2"
+        class="makeStyles-form-3"
         novalidate=""
       >
         <div
@@ -74,7 +74,7 @@ exports[`Test Calcuator Container Should match calculator snapshot 1`] = `
           >
             <p
               class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom"
-              id="down-payment"
+              id="property-price-value"
             >
               $400000
             </p>
@@ -114,20 +114,20 @@ exports[`Test Calcuator Container Should match calculator snapshot 1`] = `
                 aria-valuemin="5"
                 aria-valuenow="5"
                 aria-valuetext="5%"
-                class="MuiSlider-thumb MuiSlider-thumbColorPrimary PrivateValueLabel-thumb-4"
+                class="MuiSlider-thumb MuiSlider-thumbColorPrimary PrivateValueLabel-thumb-5"
                 data-index="0"
                 role="slider"
                 style="left: 0%;"
                 tabindex="0"
               >
                 <span
-                  class="PrivateValueLabel-offset-6 MuiSlider-valueLabel"
+                  class="PrivateValueLabel-offset-7 MuiSlider-valueLabel"
                 >
                   <span
-                    class="PrivateValueLabel-circle-7"
+                    class="PrivateValueLabel-circle-8"
                   >
                     <span
-                      class="PrivateValueLabel-label-8"
+                      class="PrivateValueLabel-label-9"
                     >
                       5
                     </span>
@@ -141,7 +141,7 @@ exports[`Test Calcuator Container Should match calculator snapshot 1`] = `
           >
             <p
               class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom"
-              id="interest-rate"
+              id="down-payment-value"
             >
               5%
             </p>
@@ -181,20 +181,20 @@ exports[`Test Calcuator Container Should match calculator snapshot 1`] = `
                 aria-valuemin="0"
                 aria-valuenow="2"
                 aria-valuetext="2%"
-                class="MuiSlider-thumb MuiSlider-thumbColorPrimary PrivateValueLabel-thumb-4"
+                class="MuiSlider-thumb MuiSlider-thumbColorPrimary PrivateValueLabel-thumb-5"
                 data-index="0"
                 role="slider"
                 style="left: 20%;"
                 tabindex="0"
               >
                 <span
-                  class="PrivateValueLabel-offset-6 MuiSlider-valueLabel"
+                  class="PrivateValueLabel-offset-7 MuiSlider-valueLabel"
                 >
                   <span
-                    class="PrivateValueLabel-circle-7"
+                    class="PrivateValueLabel-circle-8"
                   >
                     <span
-                      class="PrivateValueLabel-label-8"
+                      class="PrivateValueLabel-label-9"
                     >
                       2
                     </span>
@@ -208,10 +208,29 @@ exports[`Test Calcuator Container Should match calculator snapshot 1`] = `
           >
             <p
               class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom"
-              id="amortization-period"
+              id="interest-rate-value"
             >
               2%
             </p>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12"
+          >
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-submit-4 MuiButton-containedPrimary"
+              data-testid="select-rates-btn"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiButton-label"
+              >
+                Select Rate
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
           </div>
           <div
             class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-4"
@@ -248,20 +267,20 @@ exports[`Test Calcuator Container Should match calculator snapshot 1`] = `
                 aria-valuemin="5"
                 aria-valuenow="5"
                 aria-valuetext="5 years"
-                class="MuiSlider-thumb MuiSlider-thumbColorPrimary PrivateValueLabel-thumb-4"
+                class="MuiSlider-thumb MuiSlider-thumbColorPrimary PrivateValueLabel-thumb-5"
                 data-index="0"
                 role="slider"
                 style="left: 0%;"
                 tabindex="0"
               >
                 <span
-                  class="PrivateValueLabel-offset-6 MuiSlider-valueLabel"
+                  class="PrivateValueLabel-offset-7 MuiSlider-valueLabel"
                 >
                   <span
-                    class="PrivateValueLabel-circle-7"
+                    class="PrivateValueLabel-circle-8"
                   >
                     <span
-                      class="PrivateValueLabel-label-8"
+                      class="PrivateValueLabel-label-9"
                     >
                       5
                     </span>
@@ -275,7 +294,7 @@ exports[`Test Calcuator Container Should match calculator snapshot 1`] = `
           >
             <p
               class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom"
-              id="payment-schedule"
+              id="amortization-period-value"
             >
               5 Yr(s)
             </p>
@@ -306,20 +325,20 @@ exports[`Test Calcuator Container Should match calculator snapshot 1`] = `
                 >
                   <span
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-9 MuiRadio-root MuiRadio-colorSecondary PrivateSwitchBase-checked-10 Mui-checked MuiIconButton-colorSecondary"
+                    class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-10 MuiRadio-root MuiRadio-colorSecondary PrivateSwitchBase-checked-11 Mui-checked MuiIconButton-colorSecondary"
                   >
                     <span
                       class="MuiIconButton-label"
                     >
                       <input
                         checked=""
-                        class="PrivateSwitchBase-input-12"
+                        class="PrivateSwitchBase-input-13"
                         name="payment-schedule"
                         type="radio"
                         value="BIWKLY"
                       />
                       <div
-                        class="PrivateRadioButtonIcon-root-13 PrivateRadioButtonIcon-checked-15"
+                        class="PrivateRadioButtonIcon-root-14 PrivateRadioButtonIcon-checked-16"
                       >
                         <svg
                           aria-hidden="true"
@@ -333,7 +352,7 @@ exports[`Test Calcuator Container Should match calculator snapshot 1`] = `
                         </svg>
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root PrivateRadioButtonIcon-layer-14"
+                          class="MuiSvgIcon-root PrivateRadioButtonIcon-layer-15"
                           focusable="false"
                           viewBox="0 0 24 24"
                         >
@@ -358,19 +377,19 @@ exports[`Test Calcuator Container Should match calculator snapshot 1`] = `
                 >
                   <span
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-9 MuiRadio-root MuiRadio-colorSecondary MuiIconButton-colorSecondary"
+                    class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-10 MuiRadio-root MuiRadio-colorSecondary MuiIconButton-colorSecondary"
                   >
                     <span
                       class="MuiIconButton-label"
                     >
                       <input
-                        class="PrivateSwitchBase-input-12"
+                        class="PrivateSwitchBase-input-13"
                         name="payment-schedule"
                         type="radio"
                         value="ACC_BIWKLY"
                       />
                       <div
-                        class="PrivateRadioButtonIcon-root-13"
+                        class="PrivateRadioButtonIcon-root-14"
                       >
                         <svg
                           aria-hidden="true"
@@ -384,7 +403,7 @@ exports[`Test Calcuator Container Should match calculator snapshot 1`] = `
                         </svg>
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root PrivateRadioButtonIcon-layer-14"
+                          class="MuiSvgIcon-root PrivateRadioButtonIcon-layer-15"
                           focusable="false"
                           viewBox="0 0 24 24"
                         >
@@ -409,19 +428,19 @@ exports[`Test Calcuator Container Should match calculator snapshot 1`] = `
                 >
                   <span
                     aria-disabled="false"
-                    class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-9 MuiRadio-root MuiRadio-colorSecondary MuiIconButton-colorSecondary"
+                    class="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-10 MuiRadio-root MuiRadio-colorSecondary MuiIconButton-colorSecondary"
                   >
                     <span
                       class="MuiIconButton-label"
                     >
                       <input
-                        class="PrivateSwitchBase-input-12"
+                        class="PrivateSwitchBase-input-13"
                         name="payment-schedule"
                         type="radio"
                         value="MTHLY"
                       />
                       <div
-                        class="PrivateRadioButtonIcon-root-13"
+                        class="PrivateRadioButtonIcon-root-14"
                       >
                         <svg
                           aria-hidden="true"
@@ -435,7 +454,7 @@ exports[`Test Calcuator Container Should match calculator snapshot 1`] = `
                         </svg>
                         <svg
                           aria-hidden="true"
-                          class="MuiSvgIcon-root PrivateRadioButtonIcon-layer-14"
+                          class="MuiSvgIcon-root PrivateRadioButtonIcon-layer-15"
                           focusable="false"
                           viewBox="0 0 24 24"
                         >
@@ -460,7 +479,7 @@ exports[`Test Calcuator Container Should match calculator snapshot 1`] = `
           </div>
         </div>
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-submit-3 MuiButton-containedPrimary MuiButton-fullWidth"
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-submit-4 MuiButton-containedPrimary MuiButton-fullWidth"
           data-testid="calculate-btn"
           tabindex="0"
           type="submit"
@@ -475,7 +494,7 @@ exports[`Test Calcuator Container Should match calculator snapshot 1`] = `
           />
         </button>
         <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-submit-3 MuiButton-containedSecondary MuiButton-fullWidth"
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-submit-4 MuiButton-containedSecondary MuiButton-fullWidth"
           data-testid="reset-btn"
           tabindex="0"
           type="button"

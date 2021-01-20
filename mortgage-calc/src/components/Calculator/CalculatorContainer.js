@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Calculator from './Calculator.js';
 import { calculate } from '../../services/mortgage.js';
 import  { strings } from '../../lang.js';
+import InterestRateContainer from '../InterestRate/InterestRateContainer.js'
 
 export default function CalculatorContainer() {
   const [propertyPrice, setPropertyPrice] = useState(400000);
@@ -12,7 +13,8 @@ export default function CalculatorContainer() {
   const [province, setProvince] = useState('BC');
   const [mortgagePayment, setMortgagePayment] = useState('');
   const [mortgagePaymentResult, setMortgagePaymentResult] = useState('--');
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);  
+  const [modalVisible, setModalVisible] = useState(false);
 
   const dollarValue = (value) => {
     return `$${value}`;
@@ -54,6 +56,7 @@ export default function CalculatorContainer() {
   }
 
   const generateMortgagePaymentError = (err) => {
+    // TODO: localize and match by error code
     let errorMessage = 'Something went wrong';
     if (err.length > 0) {
       errorMessage = `${errorMessage}. Error: ${err}`
@@ -80,6 +83,19 @@ export default function CalculatorContainer() {
 
   const handleAmortizationPeriodChange = (event, newValue) => {
     setAmortizationPeriod(newValue);
+  };
+
+  const handleSelectRate = (value) => {
+    setInterestRate(value);
+    handleCloseInterestRates();
+  }
+
+  const handleViewInterestRates = () => {
+    setModalVisible(true);
+  };
+
+  const handleCloseInterestRates = () => {
+    setModalVisible(false);
   };
 
   const handleReset = () => {
@@ -111,25 +127,41 @@ export default function CalculatorContainer() {
 
   }
 
-  return <Calculator 
-      propertyPrice={propertyPrice} 
-      downPayment={downPayment} 
-      interestRate={interestRate} 
-      amortizationPeriod={amortizationPeriod} 
-      paymentSchedule={paymentSchedule}
-      isLoading={isLoading}
-      handleReset={handleReset}
-      handleSubmit={handleSubmit}
-      handleAmortizationPeriodChange={handleAmortizationPeriodChange}
-      handleDownPaymentChange={handleDownPaymentChange}
-      handlePropertyPriceChange={handlePropertyPriceChange}
-      handleInterestRateChange={handleInterestRateChange}
-      handlePaymentScheduleChange={handlePaymentScheduleChange}
-      mortgagePayment={mortgagePayment}
-      dollarValue={dollarValue}
-      yearValue={yearValue}
-      percentValue={percentValue}
-      mortgagePaymentResult={mortgagePaymentResult}
-  />;
+  const getBankRates = () => {
+    // TODO: Find publicly accessible api to retrieve bank mortgage rates
+
+    return {
+
+    }
+  }
+
+  return <>
+    <InterestRateContainer 
+      handleCloseInterestRates={handleCloseInterestRates}
+      handleSelectRate={handleSelectRate}
+      modalVisible={modalVisible}
+    />
+    <Calculator 
+        propertyPrice={propertyPrice} 
+        downPayment={downPayment} 
+        interestRate={interestRate} 
+        amortizationPeriod={amortizationPeriod} 
+        paymentSchedule={paymentSchedule}
+        isLoading={isLoading}
+        handleReset={handleReset}
+        handleSubmit={handleSubmit}
+        handleAmortizationPeriodChange={handleAmortizationPeriodChange}
+        handleDownPaymentChange={handleDownPaymentChange}
+        handlePropertyPriceChange={handlePropertyPriceChange}
+        handleInterestRateChange={handleInterestRateChange}
+        handlePaymentScheduleChange={handlePaymentScheduleChange}
+        handleViewInterestRates={handleViewInterestRates}
+        mortgagePayment={mortgagePayment}
+        dollarValue={dollarValue}
+        yearValue={yearValue}
+        percentValue={percentValue}
+        mortgagePaymentResult={mortgagePaymentResult}
+    />
+  </>;
 
 }

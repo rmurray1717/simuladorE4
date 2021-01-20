@@ -14,7 +14,10 @@ export const strings = new LocalizedStrings({
        calculate: 'Calculate',
        reset: 'Reset',
        years: 'Yr(s)',
-       mortgagePaymentResult: 'Your mortgage payment is ${0} with a {1} payment schedule.'
+       mortgagePaymentResult: 'Your mortgage payment is ${0} with a {1} payment schedule.',
+       getRate: 'Select Rate',
+       select: 'Select',
+       mortgageRateTitle: 'Mortgage Rates'
     },
     zh: {
         propertyPrice: '%%Property Price%%',
@@ -29,6 +32,9 @@ export const strings = new LocalizedStrings({
         calculate: '%%Calculate%%',
         reset: '%%Reset%%',
         years: '%%Yr(s)%%',
-        mortgagePaymentResult: '%%Your mortgage payment is ${0} with a {1} payment schedule.%%'
+        mortgagePaymentResult: '%%Your mortgage payment is ${0} with a {1} payment schedule.%%',
+        getRate: '%%Select Rate%%',
+        select: '%%Select%%',
+        mortgageRateTitle: '%%Mortgage Rates%%'
     }
 });
