@@ -9,6 +9,8 @@ import Slider from '@material-ui/core/Slider';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
+import  { strings } from '../../lang.js';
+
 const useStyles = makeStyles((theme) => ({
     paper: {
       marginTop: theme.spacing(8),
@@ -30,7 +32,7 @@ export default function Calculator(props) {
     return <Container component="main" maxWidth="xs">
     <div className={classes.paper}>
     <Typography component="h1" variant="h5">
-        Mortgage Calculator
+        {strings.mortgageCalculator}
     </Typography>
     <Typography component="h2" variant="h5">
         ${props.mortgatePayment}
@@ -39,7 +41,7 @@ export default function Calculator(props) {
         <Grid container spacing={2}>
         <Grid item xs={12} sm={4}>
             <Typography id="property-price" gutterBottom>
-                Property Price
+            {strings.propertyPrice}
             </Typography>
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -54,13 +56,13 @@ export default function Calculator(props) {
             />
         </Grid>
         <Grid item xs={6} sm={2}>
-            <Typography id="property-price" gutterBottom>
+            <Typography id="down-payment" gutterBottom>
                 {props.propertyPrice}
             </Typography>
         </Grid>
         <Grid item xs={12} sm={4}>
             <Typography id="down-payment" gutterBottom>
-                Down Payment
+                {strings.downPayment}
             </Typography>
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -76,13 +78,13 @@ export default function Calculator(props) {
             />
         </Grid>
         <Grid item xs={6} sm={2}>
-            <Typography id="property-price" gutterBottom>
+            <Typography id="interest-rate" gutterBottom>
                 {props.downPayment}
             </Typography>
         </Grid>
         <Grid item xs={12} sm={4}>
             <Typography id="interest-rate" gutterBottom>
-                Interest Rate
+                {strings.interestRate}
             </Typography>
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -98,13 +100,13 @@ export default function Calculator(props) {
             />
         </Grid>
         <Grid item xs={6} sm={2}>
-            <Typography id="property-price" gutterBottom>
+            <Typography id="amortization-period" gutterBottom>
                 {props.interestRate}
             </Typography>
         </Grid>
         <Grid item xs={12} sm={4}>
             <Typography id="amortization-period" gutterBottom>
-                Amortization Period
+                {strings.amortizationPeriod}
             </Typography>
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -120,42 +122,42 @@ export default function Calculator(props) {
             />
         </Grid>
         <Grid item xs={6} sm={2}>
-            <Typography id="property-price" gutterBottom>
+            <Typography id="payment-schedule" gutterBottom>
                 {props.amortizationPeriod}
             </Typography>
         </Grid>
         <Grid item xs={12} sm={6}>
             <Typography id="payment-schedule" gutterBottom>
-                Payment Schedule
+                {strings.paymentSchedule}
             </Typography>
         </Grid>
         <Grid item xs={12} sm={6}>
             <FormControl component="fieldset">
                 <RadioGroup aria-label="payment-schedule" name="payment-schedule" value={props.paymentSchedule} onChange={props.handlePaymentScheduleChange}>
-                    <FormControlLabel value="BIWKLY" control={<Radio />} label="Biweekly" />
-                    <FormControlLabel value="ACC_BIWKLY" control={<Radio />} label="Accelerated Biweekly" />
-                    <FormControlLabel value="MTHLY" control={<Radio />} label="Monthly" />
+                    <FormControlLabel value="BIWKLY" control={<Radio />} label={strings.biweekly} />
+                    <FormControlLabel value="ACC_BIWKLY" control={<Radio />} label={strings.accBiweekly} />
+                    <FormControlLabel value="MTHLY" control={<Radio />} label={strings.monthly} />
                 </RadioGroup>
             </FormControl>
         </Grid>
         </Grid>
         <Button
-        type="submit"
-        fullWidth
-        variant="contained"
-        color="primary"
-        className={classes.submit}
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.submit}
         >
-        Calculate
+            {strings.calculate}
         </Button>
         <Button
-        fullWidth
-        variant="contained"
-        color="secondary"
-        className={classes.submit}
-        onClick={props.handleReset}
+            fullWidth
+            variant="contained"
+            color="secondary"
+            className={classes.submit}
+            onClick={props.handleReset}
         >
-        Reset
+            {strings.reset}
         </Button>
         <Grid container justify="flex-end">
         <Grid item>
