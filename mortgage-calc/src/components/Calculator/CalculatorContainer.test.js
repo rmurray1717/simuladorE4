@@ -19,7 +19,7 @@ describe('Test Calcuator Container', () => {
      
     test('Should render calculated mortgage payment after submit', async () => {
         // TODO: extract into setUpTest
-        fetchMock.mock('https://sheltered-escarpment-94741.herokuapp.com/v1/calculator', {
+        fetchMock.mock('https://sheltered-escarpment-94741.herokuapp.com/mortgage/v1/calculator', {
             body: { paymentPerSchedule: 1000 },
             status: 200
         });
@@ -28,7 +28,7 @@ describe('Test Calcuator Container', () => {
 
         fireEvent.click(getByTestId('calculate-btn'));
 
-        const mortgagePayment = await findByText('$1000');      
+        const mortgagePayment = await findByText('Your mortgage payment is $1000 with a Biweekly payment schedule.');      
         expect(mortgagePayment).toBeInTheDocument();
      });
      
@@ -37,6 +37,6 @@ describe('Test Calcuator Container', () => {
          
          fireEvent.click(getByTestId('reset-btn'));
      
-         expect(getByTestId('mortgage-payment')).toHaveTextContent('$0');
+         expect(getByTestId('mortgage-payment')).toHaveTextContent('--');
      });
 });

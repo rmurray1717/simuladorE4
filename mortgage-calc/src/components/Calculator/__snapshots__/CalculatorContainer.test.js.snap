@@ -3,7 +3,7 @@
 exports[`Test Calcuator Container Should match calculator snapshot 1`] = `
 <DocumentFragment>
   <main
-    class="MuiContainer-root MuiContainer-maxWidthXs"
+    class="MuiContainer-root MuiContainer-maxWidthSm"
   >
     <div
       class="makeStyles-paper-1"
@@ -17,7 +17,7 @@ exports[`Test Calcuator Container Should match calculator snapshot 1`] = `
         class="MuiTypography-root MuiTypography-h5"
         data-testid="mortgage-payment"
       >
-        $1
+        --
       </h2>
       <form
         class="makeStyles-form-2"
@@ -76,7 +76,7 @@ exports[`Test Calcuator Container Should match calculator snapshot 1`] = `
               class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom"
               id="down-payment"
             >
-              400000
+              $400000
             </p>
           </div>
           <div
@@ -143,7 +143,7 @@ exports[`Test Calcuator Container Should match calculator snapshot 1`] = `
               class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom"
               id="interest-rate"
             >
-              5
+              5%
             </p>
           </div>
           <div
@@ -210,7 +210,7 @@ exports[`Test Calcuator Container Should match calculator snapshot 1`] = `
               class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom"
               id="amortization-period"
             >
-              2
+              2%
             </p>
           </div>
           <div
@@ -277,7 +277,7 @@ exports[`Test Calcuator Container Should match calculator snapshot 1`] = `
               class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom"
               id="payment-schedule"
             >
-              5
+              5 Yr(s)
             </p>
           </div>
           <div

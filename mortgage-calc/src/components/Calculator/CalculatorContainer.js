@@ -12,6 +12,7 @@ export default function CalculatorContainer() {
   const [province, setProvince] = useState('BC');
   const [mortgagePayment, setMortgagePayment] = useState('');
   const [mortgagePaymentResult, setMortgagePaymentResult] = useState('--');
+  const [isLoading, setIsLoading] = useState(false);
 
   const dollarValue = (value) => {
     return `$${value}`;
@@ -48,7 +49,8 @@ export default function CalculatorContainer() {
     }
 
     let scheduleLabel = getScheduleLabel(paymentSchedule);
-    setMortgagePaymentResult(`Your mortgage payment is $${value} ${scheduleLabel}.`);
+    let formattedString = strings.formatString(strings.mortgagePaymentResult, value, scheduleLabel);
+    setMortgagePaymentResult(formattedString);
   }
 
   const handlePaymentScheduleChange = (event) => {
@@ -82,9 +84,10 @@ export default function CalculatorContainer() {
 
   const handleSubmit = async(e) => {
     e.preventDefault();
-    
+    setIsLoading(true);
     let result = await calculate({propertyPrice, downPayment, interestRate, amortizationPeriod, paymentSchedule, province});
     let pps = result.paymentPerSchedule;
+    setIsLoading(false);
     setMortgagePayment(pps);
     generateMortgagePaymentResults(pps);
   }
@@ -95,6 +98,7 @@ export default function CalculatorContainer() {
       interestRate={interestRate} 
       amortizationPeriod={amortizationPeriod} 
       paymentSchedule={paymentSchedule}
+      isLoading={isLoading}
       handleReset={handleReset}
       handleSubmit={handleSubmit}
       handleAmortizationPeriodChange={handleAmortizationPeriodChange}

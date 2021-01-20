@@ -1,4 +1,5 @@
 import Button from '@material-ui/core/Button';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import Container from '@material-ui/core/Container';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
@@ -34,6 +35,7 @@ export default function Calculator(props) {
     <Typography component="h1" variant="h5">
         {strings.mortgageCalculator}
     </Typography>
+    {props.isLoading && <CircularProgress />}
     <Typography component="h2" variant="h5" data-testid="mortgage-payment">
         {props.mortgagePaymentResult}
     </Typography>
