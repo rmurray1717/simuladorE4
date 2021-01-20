@@ -1,12 +1,4 @@
 const mapRequestBody = ({propertyPrice, downPayment, interestRate, amortizationPeriod, paymentSchedule, province}) => {
-    console.log({
-        propertyPrice, 
-        downPayment: downPayment/100 * propertyPrice, 
-        interestRate: interestRate/100, 
-        amortizationPeriod, 
-        paymentSchedule, 
-        province
-    });
     return {
         propertyPrice, 
         downPayment: downPayment/100 * propertyPrice, 
@@ -30,7 +22,7 @@ export const calculate  = async ({propertyPrice, downPayment, interestRate, amor
         const responseJson = await response.json();
         return responseJson;
     } else {
-        console.log(response);
-        return Promise.reject(response);
+        const responseJson = await response.json();
+        return Promise.reject(responseJson);
     }
 }

@@ -11,7 +11,7 @@ describe('Test Mortgage Calculator Service', () => {
         paymentSchedule: 'BIWKLY', 
         province: 'BC'
     }
-    const TEST_URL = 'https://sheltered-escarpment-94741.herokuapp.com/v1/calculator';
+    const TEST_URL = 'https://sheltered-escarpment-94741.herokuapp.com/mortgage/v1/calculator';
 
     afterEach(() => {
         fetchMock.restore();
@@ -30,13 +30,15 @@ describe('Test Mortgage Calculator Service', () => {
     });
 
     test('Should throw error if failed', async () => {
+        const errorResponse = { error: 'Error' };
         fetchMock.mock(TEST_URL, {
-            status: 400
+            status: 400,
+            body: errorResponse
         });
         try {
             await calculate(testMortgageInput);
         } catch (err) {
-            expect(err.statusText).toEqual('Bad Request');
+            expect(err).toEqual(errorResponse);
         }
         
     });

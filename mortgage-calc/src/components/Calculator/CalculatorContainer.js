@@ -53,6 +53,15 @@ export default function CalculatorContainer() {
     setMortgagePaymentResult(formattedString);
   }
 
+  const generateMortgagePaymentError = (err) => {
+    let errorMessage = 'Something went wrong';
+    if (err.length > 0) {
+      errorMessage = `${errorMessage}. Error: ${err}`
+    }
+
+    setMortgagePaymentResult(errorMessage);
+  }
+
   const handlePaymentScheduleChange = (event) => {
     setPaymentSchedule(event.target.value);
   };
@@ -80,16 +89,26 @@ export default function CalculatorContainer() {
     setAmortizationPeriod(5);
     setPaymentSchedule('');
     setMortgagePayment('');
+    setMortgagePaymentResult('--');
   }
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    let result = await calculate({propertyPrice, downPayment, interestRate, amortizationPeriod, paymentSchedule, province});
-    let pps = result.paymentPerSchedule;
-    setIsLoading(false);
-    setMortgagePayment(pps);
-    generateMortgagePaymentResults(pps);
+    
+    //TODO: react-redux
+    try {
+      let result = await calculate({propertyPrice, downPayment, interestRate, amortizationPeriod, paymentSchedule, province});
+      let pps = result.paymentPerSchedule;
+      setIsLoading(false);
+      setMortgagePayment(pps);
+      generateMortgagePaymentResults(pps);
+    } catch (err) {
+      setIsLoading(false);
+      setMortgagePayment('--');
+      generateMortgagePaymentError(err.error);
+    }
+
   }
 
   return <Calculator 
